@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>SimpleFluentValidation</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>kaxias4</Authors>
+    <PackageDescription>A Simple fluent validation</PackageDescription>
+    <RepositoryUrl>https://github.com/kaxias4/SimpleFluentValidation</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
