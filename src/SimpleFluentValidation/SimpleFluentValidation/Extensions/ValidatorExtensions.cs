@@ -1,6 +1,7 @@
 ﻿using SimpleFluentValidation.Enums;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace SimpleFluentValidation.Extensions
@@ -35,6 +36,28 @@ namespace SimpleFluentValidation.Extensions
 
                 return value.Length <= maxLength;
 
+            }, error);
+
+            return validator;
+        }
+
+        public static Validator<string> OnlyNumbers(this Validator<string> validator, Error error = null)
+        {
+            if(error == null)
+                error = new Error("OnlyNumbers", $"Valor só pode ter números.", ErrorLevel.Error);
+
+            validator.AddRule(value =>
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    return true;
+
+                foreach (char c in value)
+                {
+                    if (c < '0' || c > '9')
+                        return false;
+                }
+
+                return true;
             }, error);
 
             return validator;
